@@ -1,11 +1,9 @@
-/*  your css code here. If applicable */
 body {
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background: linear-gradient(to bottom, #ff7757, #fefb4b); */
   flex-direction: column;
 }
 
@@ -27,7 +25,7 @@ body {
   background-color: #3498db;
   z-index: -1;
   transition: width 0.4s ease;
-  transform: translateY(-50%);
+  transform: tranbslateY(-50%);
 }
 
 .circle {

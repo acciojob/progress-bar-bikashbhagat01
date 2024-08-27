@@ -1,9 +1,8 @@
+
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const progressBar = document.getElementById("progress-bar");
 const circles = document.querySelectorAll(".circle");
-
-// console.log(circles);
 
 let currentActive = 1; // Tracking the currently Active Circle
 
