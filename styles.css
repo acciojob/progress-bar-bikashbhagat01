@@ -27,7 +27,7 @@ body {
   background-color: #3498db;
   z-index: -1;
   transition: width 0.4s ease;
-  transform: tranbslateY(-50%);
+  transform: translateY(-50%);
 }
 
 .circle {

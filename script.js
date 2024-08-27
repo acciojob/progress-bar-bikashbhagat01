@@ -1,5 +1,3 @@
-import "./styles.css";
-
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const progressBar = document.getElementById("progress-bar");
