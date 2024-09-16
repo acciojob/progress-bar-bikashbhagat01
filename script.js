@@ -1,46 +1,52 @@
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
-const progressBar = document.getElementById("progressBar");
-const circles = document.querySelectorAll(".circle");
+const progress = document.getElementById('progress');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const circles = document.querySelectorAll('.circle');
 
-let currentActive = 1; // Tracking the currently Active Circle
+let currentActive = 1;
 
-next.addEventListener("click", () => {
-  ++currentActive;
-  if (currentActive > circles.length) {
-    currentActive = circles.length;
-  }
+next.addEventListener('click', () => {
+    currentActive++;
 
-  updateProgressBar(); // Keeps the common Logic
-});
-
-prev.addEventListener("click", () => {
-  --currentActive;
-  if (currentActive < 1) {
-    currentActive = 1;
-  }
-
-  updateProgressBar(); // Keeps the common Logic
-});
-
-function updateProgressBar() {
-  circles.forEach((circle, currIndex) => {
-    if (currIndex < currentActive) {
-      circle.classList.add("active");
-    } else {
-      circle.classList.remove("active");
+    if (currentActive > circles.length) {
+        currentActive = circles.length;
     }
-  });
 
-  const progressFill = ((currentActive - 1) / (circles.length - 1)) * 100;
-  progressBar.style.width = progressFill + "%";
+    update();
+});
 
-  if (currentActive === 1) {
-    prev.disabled = true;
-  } else if (currentActive === circles.length) {
-    next.disabled = true;
-  } else {
-    prev.disabled = false;
-    next.disabled = false;
-  }
+prev.addEventListener('click', () => {
+    currentActive--;
+
+    if (currentActive < 1) {
+        currentActive = 1;
+    }
+
+    update();
+});
+
+function update() {
+    circles.forEach((circle, idx) => {
+        if (idx < currentActive) {
+            circle.classList.add('active');
+        } else {
+            circle.classList.remove('active');
+        }
+    });
+
+    const actives = document.querySelectorAll('.active');
+
+    progress.style.width = ((actives.length - 1) / (circles.length - 1)) * 100 + '%';
+
+    if (currentActive === 1) {
+        prev.disabled = true;
+    } else {
+        prev.disabled = false;
+    }
+
+    if (currentActive === circles.length) {
+        next.disabled = true;
+    } else {
+        next.disabled = false;
+    }
 }
